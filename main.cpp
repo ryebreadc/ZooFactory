@@ -55,7 +55,12 @@ class Fish: public Zoo {
         cout << "}{Grgglll}{\n";
     }
 };
-
+class Monster: public Zoo {
+  public:
+    void io() {
+      cout << "Input didn't match a zoo animal, so we sent you an abomination :)\n";
+    }
+};
 // this is the FACTORY Method
 // it does need to know about the derived methods
 // but this allows us to abstract this from our 
@@ -71,8 +76,10 @@ Zoo *Zoo::make_animal(string choice) {
     return new Amphibian;
   else if (choice == "Avian")
     return new Avian;
-  else
+  else if (choice == "Fish")
     return new Fish;
+  else
+    return new Monster;
 }
 
 
